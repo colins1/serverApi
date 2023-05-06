@@ -70,6 +70,8 @@ function findTicketById(id) {
 }
 
 app.use(async ctx => {
+    ctx.set('Access-Control-Allow-Origin', '*');
+    ctx.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     const params = new URLSearchParams(ctx.request.querystring);
     const obj = { method: params.get('method'), id: params.get('id') };
     const { method, id } = obj;
